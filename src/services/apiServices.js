@@ -3,10 +3,21 @@ import ENDPOINT from "api/endpoints/products";
 import { Header } from "helpers/headerHelper";
 import * as services from "helpers/axiosHelper";
 
-export const getProductList = async () => {
+export const getCountProduct = async () => {
+  try {
+    const request = await services.GET(`${API_BASE_URL}${ENDPOINT.products}`);
+    if (request.status === 200) {
+      const { data } = request;
+      return data.length;
+    }
+  } catch (error) {
+    console.log(error, "err");
+  }
+};
+export const getProductList = async (limit, sort) => {
   try {
     const request = await services.GET(
-      `${API_BASE_URL}${ENDPOINT.products}?limit=10`
+      `${API_BASE_URL}${ENDPOINT.products}?limit=${limit}&sort=${sort}`
     );
     if (request.status === 200) {
       const { data } = request;
