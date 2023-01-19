@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useSpring, a } from "@react-spring/web";
-import { useNavigate } from "react-router-dom";
+import { a, useSpring } from "@react-spring/web";
 import LoadingComponent from "components/loadingComponent";
-import { getCountProduct, getProductList } from "services/apiServices";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { getCountProduct } from "services/apiServices";
 
 const CardProduct = ({ productData, fetchMore }) => {
   const navigate = useNavigate();
@@ -80,10 +80,10 @@ const CardProduct = ({ productData, fetchMore }) => {
           ))}
         </div>
       )}
-      <div className="relative pb-3">
+      <div className="relative pb-3 mb-2">
         {productData.length < count && !loadLoading && (
           <button
-            className="absolute bottom-12 flex justify-center w-full hover:bg-myPrimary hover:text-white"
+            className="absolute bottom-12 flex justify-center w-full hover:bg-myPrimary hover:text-white bg-white rounded-md"
             onClick={loadMore}
           >
             Load More

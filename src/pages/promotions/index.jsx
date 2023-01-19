@@ -1,6 +1,5 @@
 import LayoutApp from "components/layoutApp";
 import React from "react";
-
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import AwesomeSlider from "react-awesome-slider";
 import { imageSlider } from "utils/banners";

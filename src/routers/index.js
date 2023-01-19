@@ -3,6 +3,7 @@ import Auth from "pages/auth";
 import DetailProduct from "pages/detailProduct";
 import Home from "pages/home";
 import Promotions from "pages/promotions";
+import Register from "pages/register";
 import { Route, Routes } from "react-router-dom";
 
 function MainRoute() {
@@ -13,6 +14,7 @@ function MainRoute() {
       <Route path="/home" element={<Home />} />
       <Route path="/detail/:id" element={<DetailProduct />} />
       <Route path="/promotions" element={<Promotions />} />
+      <Route path="/register" element={<Register />} />
     </Routes>
   );
 }

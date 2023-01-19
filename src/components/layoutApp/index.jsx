@@ -2,13 +2,6 @@ import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
 
-const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Team", href: "#", current: false },
-  { name: "Projects", href: "#", current: false },
-  { name: "Calendar", href: "#", current: false },
-];
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -18,6 +11,7 @@ const LayoutApp = ({ children, needHeader }) => {
   return (
     <>
       <div className="h-screen bg-content">
+        {/* Animation Bubble */}
         <li></li>
         <li></li>
         <li></li>
@@ -28,6 +22,7 @@ const LayoutApp = ({ children, needHeader }) => {
         <li></li>
         <li></li>
         <li></li>
+        {/* Animation Bubble */}
         {needHeader ? (
           <Disclosure
             as="nav"
@@ -58,12 +53,12 @@ const LayoutApp = ({ children, needHeader }) => {
                       <p>Get New Promotions</p>
                       <p
                         onClick={() => navigate("/promotions")}
-                        className="font-bold px-1 cursor-pointer hover:text-myPrimary"
+                        className="font-bold px-1 mr-1 cursor-pointer hover:text-myPrimary"
                       >
                         Now
                       </p>
                     </div>
-                    <div className="items-center flex">
+                    <div className="items-center  hidden sm:flex">
                       <button
                         onClick={() => navigate("/auth")}
                         className="font-semibold bg-myPrimary py-1 px-2 rounded-xl"
@@ -92,30 +87,33 @@ const LayoutApp = ({ children, needHeader }) => {
                 </div>
 
                 <Disclosure.Panel className="sm:hidden">
-                  <div className="space-y-1 pt-2 pb-3">
-                    {navigation.map((item) => (
-                      <Disclosure.Button
-                        key={item.name}
-                        as="a"
-                        href={item.href}
-                        className={classNames(
-                          item.current
-                            ? "bg-indigo-50 border-indigo-500 text-indigo-700"
-                            : "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800",
-                          "block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
-                        )}
-                        aria-current={item.current ? "page" : undefined}
-                      >
-                        {item.name}
-                      </Disclosure.Button>
-                    ))}
-                  </div>
+                  <Disclosure.Button
+                    className={classNames(
+                      " text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800",
+                      "block pl-5 pr-4 py-2 border-l-4 text-base "
+                    )}
+                    onClick={() => navigate("/promotions")}
+                  >
+                    <div className="justify-evenly">
+                      <span>Get New Promotions </span>
+                      <span className="font-semibold">Now</span>
+                    </div>
+                  </Disclosure.Button>
+                  <Disclosure.Button
+                    className={classNames(
+                      " text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800",
+                      "block pl-5 pr-4 py-2 mt-1 border-l-4 text-base "
+                    )}
+                    onClick={() => navigate("/auth")}
+                  >
+                    Login
+                  </Disclosure.Button>
                 </Disclosure.Panel>
               </>
             )}
           </Disclosure>
         ) : null}
-        <main className="py-6 h-screen  overflow-y-auto">
+        <main className="py-6 h-screen overflow-auto">
           <div className="mx-4 sm:px-6 lg:px-8">{children}</div>
         </main>
       </div>

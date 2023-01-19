@@ -1,12 +1,13 @@
-import React, { useState } from "react";
-import { useTransition, animated, useSpring } from "@react-spring/web";
-import ShoppingCartAnimation from "assets/img/lottie/shopping-cart.json";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import { animated, useSpring, useTransition } from "@react-spring/web";
+import ShoppingCartAnimation from "assets/img/lottie/shopping-cart.json";
+import { useState } from "react";
 
 import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
 
 const SplashScreen = () => {
+  // eslint-disable-next-line no-unused-vars
   const [index, set] = useState(0);
   const navigate = useNavigate();
 
@@ -50,9 +51,9 @@ const SplashScreen = () => {
       <div className="items-center flex align-middle text-center text-5xl font-bold">
         {transitionsText((style, i) => (
           <animated.div style={{ ...stylesProject }}>
-            <p className="">Ready for shopping?</p>
+            <p className="">Ready for 𝑆hopping?</p>
             <div className="text-sm mt-10 mr-2 flex align-middle items-center justify-end text-gray-200 tracking-wide font-normal">
-              <p className="pr-2">Let's shopping now</p>
+              <p className="pr-2">Let's 𝑆hopping now</p>
               <button onClick={goToHomePage}>
                 <ArrowRightIcon className="w-14" />
               </button>
